@@ -8,12 +8,21 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.BOOLEAN,
             allowNull: false,
         },
+        updatedAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        }
+        ,
+        createdAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
         UserId: {
             type: DataTypes.INTEGER,
             allowNull: false,
         }
     }, {
-        timestamps: true,
+        timestamps: false,
     });
 };
 

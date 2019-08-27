@@ -19,7 +19,6 @@ router.get('/:id', function (req, res, next) {
             id: req.params.id
         }
     }).then((users) => {
-        console.log(users[0].dataValues);
         res.send(users[0].dataValues);
     }).catch(err => {
         next(err);

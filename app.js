@@ -1,20 +1,23 @@
 const express = require('express');
 const cors = require('cors');
+const logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/user');
+var todosRouter = require('./routes/todo');
 var sequelize = require('./models').sequelize;
 
 const app = express();
-const PORT = process.env.NODE_ENV === 'production' ? 3001: 3002
+const PORT = process.env.NODE_ENV === 'production' ? 3001: 3002;
 sequelize.sync();
 
+app.use(logger('dev'));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/todos', todosRouter);
 
 // 404 처리 미들웨어
 app.use(function(req, res, next) {
