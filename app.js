@@ -6,6 +6,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/user');
 var todosRouter = require('./routes/todo');
 var sequelize = require('./models').sequelize;
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.NODE_ENV === 'production' ? 3001: 3002;
