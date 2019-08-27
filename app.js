@@ -12,7 +12,7 @@ const PORT = process.env.NODE_ENV === 'production' ? 3001: 3002;
 sequelize.sync();
 
 app.use(logger('dev'));
-app.use(cors());
+app.use(cors({credentials: true, origin: true}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
